@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title or "Dashboard" }} | RetailPulse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="{{ url_for('dashboard.dashboard') }}">
+      <i data-lucide="activity"></i><span>RetailPulse</span>
+    </a>
+    <nav class="nav">
+      <a href="{{ url_for('dashboard.dashboard') }}" class="{{ 'active' if request.endpoint == 'dashboard.dashboard' else '' }}"><i data-lucide="layout-dashboard"></i><span>Dashboard</span></a>
+      <a href="{{ url_for('dashboard.customers') }}" class="{{ 'active' if request.endpoint == 'dashboard.customers' else '' }}"><i data-lucide="users"></i><span>Customers</span></a>
+      <a href="{{ url_for('dashboard.products') }}" class="{{ 'active' if request.endpoint == 'dashboard.products' else '' }}"><i data-lucide="package"></i><span>Products</span></a>
+      <a href="{{ url_for('dashboard.regions') }}" class="{{ 'active' if request.endpoint == 'dashboard.regions' else '' }}"><i data-lucide="map"></i><span>Regions</span></a>
+      <a href="{{ url_for('dashboard.cohorts') }}" class="{{ 'active' if request.endpoint == 'dashboard.cohorts' else '' }}"><i data-lucide="repeat-2"></i><span>Cohorts</span></a>
+      <a href="{{ url_for('dashboard.anomalies') }}" class="{{ 'active' if request.endpoint == 'dashboard.anomalies' else '' }}"><i data-lucide="triangle-alert"></i><span>Anomalies</span></a>
+      <a href="{{ url_for('dashboard.ai_insights') }}" class="{{ 'active' if request.endpoint == 'dashboard.ai_insights' else '' }}"><i data-lucide="bot"></i><span>AI Insights</span></a>
+      <a href="{{ url_for('dashboard.exports') }}" class="{{ 'active' if request.endpoint == 'dashboard.exports' else '' }}"><i data-lucide="upload"></i><span>Export</span></a>
+    </nav>
+    <div class="user-box">
+      <div>
+        <strong>{{ current_user.username }}</strong>
+        <small>{{ current_user.role }}</small>
+      </div>
+      <a class="icon-link" href="{{ url_for('auth.logout') }}" title="Logout"><i data-lucide="log-out"></i></a>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Sales Intelligence</p>
+        <h1>{{ title or "Dashboard" }}</h1>
+      </div>
+      <select class="range-filter" aria-label="Date range">
+        <option>Last 30d</option>
+        <option>90d</option>
+        <option>1Y</option>
+        <option>All</option>
+      </select>
+    </header>
+    {% block content %}{% endblock %}
+  </main>
+  <script>lucide.createIcons();</script>
+  <script src="{{ url_for('static', filename='js/animations.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

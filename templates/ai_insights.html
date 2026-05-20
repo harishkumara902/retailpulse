@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid ai-layout">
+  <article class="panel"><h2>Historical Insights</h2><div class="insight-list" id="insightHistory"></div></article>
+  <article class="panel"><h2>Weekly Summary</h2><p id="weeklySummary">Generate a concise executive summary from the current dataset.</p><button class="gradient-btn" id="weeklySummaryBtn">Generate Summary</button></article>
+</section>
+<section class="chat-shell">
+  <header><span><i data-lucide="bot"></i> RetailPulse AI</span><small><b></b> online</small><em id="messageRemaining">20 messages remaining today</em></header>
+  <div class="chat-log" id="chatLog"></div>
+  <form class="chat-input" id="chatForm"><input id="chatMessage" placeholder="Ask about sales, customers, products, or trends..." required><button>Send</button></form>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/chatbot.js') }}"></script>
+{% endblock %}

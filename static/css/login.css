@@ -1,0 +1,111 @@
+.login-body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.mesh {
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(154,82,255,0.22), transparent 28%),
+    radial-gradient(circle at 80% 10%, rgba(114,221,247,0.16), transparent 26%),
+    radial-gradient(circle at 70% 82%, rgba(255,178,230,0.16), transparent 30%),
+    var(--bg-dark);
+  animation: meshMove 9s ease-in-out infinite alternate;
+}
+.particles {
+  position: fixed;
+  inset: 0;
+  background-image:
+    radial-gradient(var(--violet) 1px, transparent 1px),
+    radial-gradient(var(--cyan) 1px, transparent 1px);
+  background-size: 64px 64px, 96px 96px;
+  opacity: .24;
+  animation: particleDrift 18s linear infinite;
+}
+.login-card {
+  position: relative;
+  width: min(420px, calc(100vw - 32px));
+  padding: 34px;
+  border: 1px solid rgba(154,82,255,0.28);
+  border-radius: 8px;
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 80px rgba(132,71,255,0.18);
+}
+.login-logo {
+  font-family: "Syne", sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  text-align: center;
+}
+.login-card p {
+  margin: 8px 0 26px;
+  text-align: center;
+  color: var(--text-muted);
+}
+.login-card label {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--text-muted);
+}
+.login-card input {
+  width: 100%;
+  background: var(--bg-dark);
+  border: 1px solid rgba(154,82,255,0.3);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 13px 14px;
+  outline: none;
+}
+.login-card input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(154,82,255,0.15);
+}
+.remember {
+  display: flex !important;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 9px !important;
+}
+.remember input { width: auto; }
+.login-card button {
+  width: 100%;
+  border: 0;
+  padding: 13px 16px;
+  color: var(--text);
+  border-radius: 8px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--deep), var(--periwinkle));
+  box-shadow: 0 12px 30px rgba(154,82,255,0.28);
+  transition: transform .2s ease, filter .2s ease;
+}
+.login-card button:hover {
+  transform: scale(1.02);
+  filter: brightness(1.12);
+}
+.demo {
+  display: grid;
+  gap: 7px;
+  margin-top: 22px;
+  color: var(--text-muted);
+  text-align: center;
+}
+.demo code {
+  color: var(--cyan);
+  background: rgba(19,19,42,0.8);
+  border-radius: 8px;
+  padding: 6px;
+}
+.flash {
+  margin-bottom: 16px;
+  padding: 10px;
+  border-radius: 8px;
+  color: var(--pink);
+  border: 1px solid rgba(255,178,230,0.45);
+}
+@keyframes meshMove { to { transform: scale(1.08) rotate(2deg); } }
+@keyframes particleDrift { to { background-position: 64px 96px, -96px 64px; } }

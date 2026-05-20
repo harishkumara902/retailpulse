@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login | RetailPulse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body class="login-body">
+  <div class="mesh"></div>
+  <div class="particles" aria-hidden="true"></div>
+  <form class="login-card" method="post">
+    <div class="login-logo">RetailPulse</div>
+    <p>Sales Intelligence Dashboard</p>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <div class="flash {{ category }}">{{ message }}</div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+    <label>Username<input name="username" autocomplete="username" required></label>
+    <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+    <label class="remember"><input type="checkbox" name="remember" checked> Remember me</label>
+    <button type="submit">Login</button>
+    <div class="demo">
+      <span>Demo credentials</span>
+      <code>admin / admin123</code>
+      <code>manager / manager123</code>
+      <code>analyst / analyst123</code>
+    </div>
+  </form>
+</body>
+</html>

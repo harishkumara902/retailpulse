@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+retailpulse.db
+.DS_Store
+venv/
+*.egg-info/
+server.out.log
+server.err.log

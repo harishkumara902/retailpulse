@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Revenue With Forecast</h2><canvas id="anomalyRevenueChart"></canvas></section>
+<section class="timeline" id="anomalyTimeline"></section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>window.RetailPulse.initAnomalies();</script>
+{% endblock %}

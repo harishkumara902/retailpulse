@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="export-grid">
+  <a class="export-card" href="/api/export/revenue.csv"><i data-lucide="file-spreadsheet"></i><strong>Revenue CSV</strong><span>Monthly revenue and order counts</span></a>
+  <a class="export-card" href="/api/export/customer-ltv.csv"><i data-lucide="users"></i><strong>Customer LTV CSV</strong><span>Customer value segmentation</span></a>
+  <a class="export-card" href="/api/export/report.pdf"><i data-lucide="file-text"></i><strong>Full Report PDF</strong><span>KPIs, top products, and latest insight</span></a>
+</section>
+{% endblock %}

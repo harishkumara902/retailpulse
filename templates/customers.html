@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="toolbar"><select id="segmentFilter"><option value="">All segments</option><option>Premium</option><option>Regular</option><option>Budget</option></select></section>
+<section class="grid charts-two">
+  <article class="panel"><h2>LTV Ranking</h2><canvas id="ltvChart"></canvas></article>
+  <article class="panel"><h2>Cohort Retention</h2><div class="heatmap" id="cohortHeatmap"></div></article>
+</section>
+<section class="panel"><h2>Churn Risk</h2><div class="table-wrap"><table id="churnTable"><thead><tr><th>Name</th><th>Segment</th><th>Region</th><th>Orders</th><th>Days Idle</th><th>Risk</th></tr></thead><tbody></tbody></table></div></section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>window.RetailPulse.initCustomers();</script>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid region-layout">
+  <article class="panel"><h2>India Regions</h2><div class="region-map" id="regionMap"></div></article>
+  <article class="panel"><h2>Shipping Days</h2><canvas id="shippingChart"></canvas></article>
+</section>
+<section class="region-cards" id="regionCards"></section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>window.RetailPulse.initRegions();</script>
+{% endblock %}

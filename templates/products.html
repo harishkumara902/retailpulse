@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="grid charts-two">
+  <article class="panel"><h2>Category Performance</h2><canvas id="categoryRadar"></canvas></article>
+  <article class="panel"><h2>Return Rate</h2><canvas id="productReturnBar"></canvas></article>
+</section>
+<section class="panel"><h2>Top Products</h2><div class="table-wrap"><table id="productTable"><thead><tr><th>Name</th><th>Category</th><th>Units</th><th>Revenue</th><th>Margin</th></tr></thead><tbody></tbody></table></div></section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>window.RetailPulse.initProducts();</script>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="panel"><h2>Monthly Cohort Retention</h2><div class="heatmap large" id="cohortHeatmap"></div></section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>window.RetailPulse.initCohorts();</script>
+{% endblock %}

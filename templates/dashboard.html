@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="kpi-grid">
+  <article class="metric cyan"><i data-lucide="indian-rupee"></i><span>Total Revenue</span><strong id="kpiRevenue">...</strong><small id="kpiGrowth"></small></article>
+  <article class="metric purple"><i data-lucide="package"></i><span>Total Orders</span><strong id="kpiOrders">...</strong><small>All statuses</small></article>
+  <article class="metric pink"><i data-lucide="users"></i><span>Active Customers</span><strong id="kpiCustomers">...</strong><small>Purchasing users</small></article>
+  <article class="metric lavender"><i data-lucide="trending-down"></i><span>Churn Risk</span><strong id="kpiChurn">...</strong><small>High risk customers</small></article>
+</section>
+<a class="anomaly-banner hidden" id="anomalyBanner" href="{{ url_for('dashboard.anomalies') }}"><i data-lucide="triangle-alert"></i><span></span></a>
+<section class="grid charts-one">
+  <article class="panel wide"><h2>Revenue Trend</h2><canvas id="revenueTrend"></canvas></article>
+  <article class="panel"><h2>Sales by Region</h2><canvas id="regionDonut"></canvas></article>
+</section>
+<section class="grid charts-two">
+  <article class="panel"><h2>Category Return Rate</h2><canvas id="returnBar"></canvas></article>
+  <article class="panel"><h2>Customer Segments</h2><canvas id="segmentStack"></canvas></article>
+</section>
+<section class="ai-card">
+  <div class="ai-card-head"><span><i data-lucide="bot"></i> AI Insight</span><button id="regenerateInsight">Regenerate <small id="insightRemaining"></small></button></div>
+  <div id="dailyInsight">Generate an insight to summarize the latest dashboard signals.</div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>window.RetailPulse.initDashboard();</script>
+{% endblock %}
