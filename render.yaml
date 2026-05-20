@@ -9,7 +9,5 @@ services:
     envVars:
       - key: FLASK_SECRET_KEY
         generateValue: true
-      - key: ANTHROPIC_API_KEY
-        sync: false
       - key: FLASK_ENV
         value: production
